@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define LEN 5
+
+int main() {
+    int i,cont=0;
+    char vettore[LEN];
+    printf("inserire 5 caratteri minuscoli:\n");
+    for(i=0;i<LEN;i++){
+        scanf(" %c",&vettore[i]);
+        
+    }
+    for(i=0;i<LEN;i++){
+        if(vettore[i]<vettore[i+1])
+            cont++;
+    }
+    if (cont==4)
+        printf("I caratteri sono in ordine alfabetico.\n");
+    else
+        printf("I caratteri non sono in ordine alfabetico.\n");
+    
+    return 0;
+}
