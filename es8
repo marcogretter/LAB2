@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define N 100
+
+int main(){
+    char txt1[N] = "ho studiato e mi pace fare questo esercizio bene";
+    char txt2[N] = "meno male che studiamo l'informatica! ";
+    
+    int i,k,lun1,lun2;
+    float cont1=0,sum1=0,NumParole1=0,cont2=0,sum2=0,cont3=0,cont4=0;
+    float NumParole2=0;
+    double LunMediaParole2,LunMediaParole1;
+    lun1=strlen(txt1);
+    lun2=strlen(txt2);
+//    trovo la lunghezza media delle parole della prima frase
+    for (i=0; i<=lun1; i++) {
+        if(txt1[i]!=' ')
+            cont1++;
+        else{
+            sum1+=cont1;
+            NumParole1++;
+            cont1=0;
+        }
+    }
+    LunMediaParole1=(sum1/NumParole1);
+    printf("Lunghezza media delle parole nella prima frase: %f\n",LunMediaParole1);
+    
+//    Verifico quali sono più corte della media e stampo '+' se è >=alla media '-' se è < della media.
+    for (i=0; i<lun1; i++) {
+        if(txt1[i]!=' ')
+            cont3++;
+        else{
+            if(cont3>=LunMediaParole1){
+                printf("+");
+                cont3=0;
+            }
+            else{
+                printf("-");
+                cont3=0;
+            }
+        }
+    }
+    printf("\n");
+//    trovo la lunghezza media delle parole della seconda frase
+    for (i=0; i<=lun2; i++) {
+        if(txt2[i]!=' ')
+            cont2++;
+        else{
+            sum2+=cont2;
+            NumParole2++;
+            cont2=0;
+        }
+    }
+    LunMediaParole2=(sum2/NumParole2);
+    printf("Lunghezza media delle parole nella seconda frase: %f\n",LunMediaParole2);
+    
+    for (i=0; i<lun1; i++) {
+        if(txt2[i]!=' ')
+            cont4++;
+        else{
+            if(cont4>=LunMediaParole2){
+                printf("+");
+                cont4=0;
+            }
+            else{
+                printf("-");
+                cont4=0;
+            }
+        }
+    }
+    printf("\n");
+    return 0;
+}
