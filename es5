@@ -1,0 +1,33 @@
+#define N 100
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char parola[N];
+    int LunParola;
+    int max=0;
+    int min=N;
+    int cont=0;
+    int k=0;
+    int i;
+    
+    printf("Digita una parola e io ti dirò quante volte si ripete la lettera che si ripete di più e quella che si ripete di meno:\n");
+    scanf("%s",parola);
+    
+    
+    LunParola=strlen(parola);
+    for (k=0; k<LunParola; k++) {
+        cont=0;
+        for (i=0; i<LunParola;i++) {
+            if(parola[k]==parola[i])
+                cont++;
+        }
+        if(cont>max)
+            max=cont;
+        if(cont<min)
+            min=cont;
+    }
+    printf("La lettera ripetuta maggiormente è ripetuta %d volte.\n",max);
+    printf("La lettera ripetuta meno è ripetuta %d volte.\n",min);
+    
+    return 0;
+}
